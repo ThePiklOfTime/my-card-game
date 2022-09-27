@@ -1,63 +1,19 @@
-<script lang="ts">
-	import { json } from "@sveltejs/kit";
-    //@ts-ignore
-    import deck from '$lib/data/cah-cards-full.json';
-	import { each } from "svelte/internal";
-    import PocketBase from 'pocketbase';
-    let user = import.meta.env.VITE_USERNAME
-    let pass = import.meta.env.VITE_PASS //move this to server side for security reasons
-    let myDick = JSON.stringify(deck[0])
-    const client = new PocketBase('http://127.0.0.1:8090');
-    async function db() {
-        await client.admins.authViaEmail(user, pass)
-        deck.forEach(element => {
-            const record = client.records.create('deck', {field : element, name: element["name"]}).then()
-        });
-
-    }
-    db()
-
-    let official = true;
-    let hello: { [key: string]: boolean }  = {};
-    $: {
-        console.log(hello)
-    }
-
+<script>
+    import {Heading, Input, Button} from 'flowbite-svelte'
 </script>
-<div class="cardSelector">
-{#each deck as dick}
-{#if dick["official"] == official}
-<div>
-    <input type="checkbox" bind:checked={hello[dick["name"]]}> 
-    <p>
-        {dick["name"]}
-    </p>
-</div>
-{/if}
+
+<div class="text-center">
+    <Heading class="dark:text-sky-400">
+        <p class="text-slate-100 pt-96 pb-20">
+            Welcome to cards against you!
+        </p>
+    </Heading>
+    <div class="m-10 flex">
+        <Input id="Large-input" size="lg" placeholder="Input your username"/> 
+        <Button class="ml-10">
+            Continue
+        </Button>
+
+    </div>
     
-{/each}
 </div>
-<style>
-.cardSelector {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #362222;
-    padding: 1em;
-    border-radius: 20px;
-
-}
-div{
-    display: flex;
-}
-p {
-    padding: 0.2em;
-    margin: 0.3em;
-    outline: 1px solid black;
-    color: white;
-    border-radius: 5px;
-    font-size: 0.9em;
-    box-shadow: 1px;
-    background-color: #423F3E;
-}
-
-</style>

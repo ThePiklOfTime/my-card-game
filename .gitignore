@@ -7,3 +7,4 @@ node_modules
 .env.*
 !.env.example
 /pocketbase_0.7.6_windows_amd64
+/.vscode

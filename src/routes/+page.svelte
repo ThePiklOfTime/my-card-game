@@ -1,5 +1,11 @@
-<script>
+<script lang="ts">
     import {Heading, Input, Button} from 'flowbite-svelte'
+    let userName: string;
+    export let data;
+    export let form;
+    $: {
+        console.log(userName)
+    }
 </script>
 
 <div class="text-center">
@@ -9,11 +15,17 @@
         </p>
     </Heading>
     <div class="m-10 flex">
-        <Input id="Large-input" size="lg" placeholder="Input your username"/> 
-        <Button class="ml-10">
-            Continue
-        </Button>
-
+        <form method="POST" action="/room" class="flex w-full">
+            <Input id="Large-input" size="lg" placeholder="Input your username" class="dark:border-slate-300" bind:value={userName} name="username"/> 
+            <Button class="ml-10 my-2" type="submit">
+                Continue
+            </Button> 
+            
+           
+        </form>
     </div>
     
 </div>
+<style>
+
+</style>

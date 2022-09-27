@@ -4,7 +4,7 @@
 	import { each } from "svelte/internal";
     import {Checkbox} from 'flowbite-svelte'
     export let data : any;
-    export let form : any;
+    //export let form : any;
     let deck_v2 = data.names;
     let userName = data.username;
     let hello: { [key: string]: boolean }  = {};

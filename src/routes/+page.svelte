@@ -1,8 +1,8 @@
 <script lang="ts">
     import {Heading, Input, Button} from 'flowbite-svelte'
     let userName: string;
-    export let data;
-    export let form;
+    //export let data;
+    //export let form;
     $: {
         console.log(userName)
     }

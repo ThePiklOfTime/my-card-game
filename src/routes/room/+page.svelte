@@ -3,14 +3,15 @@
     //@ts-ignore
 	import { each } from "svelte/internal";
     import {Checkbox} from 'flowbite-svelte'
+    //import {username} from './+page.server'
     export let data : any;
     //export let form : any;
     let deck_v2 = data.names;
     let userName = data.username;
+    $: userNames = data.usernames;
+    //console.log(username)
     let hello: { [key: string]: boolean }  = {};
-    $: {
         //console.log(hello)
-    }
     //console.log(data.names)
 
 </script>
@@ -27,6 +28,10 @@
 </div>
 <p class="text-white">
         {userName}
+       
+</p>
+<p class="text-white">
+    {userNames}
 </p>
 
 <style>

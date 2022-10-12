@@ -11,6 +11,8 @@ await client.admins.authViaEmail(user, pass);
 
 export let username: string[]= [];
 
+export const ssr = false;
+
 let decks = await client.records.getFullList("deck_v2", 300)
 //@ts-ignore
 decks.sort( (a, b) => {

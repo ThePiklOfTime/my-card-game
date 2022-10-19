@@ -5,6 +5,7 @@
     import {Checkbox} from 'flowbite-svelte'
     //import {username} from './+page.server'
     import {stores} from './store'
+    import Players from "./players.svelte";
     
     export let data : any;
     //export let form : any;
@@ -28,10 +29,10 @@
     }
 
 </script>
-<div class="flex flex-wrap bg-slate-900 m-10 p-4 rounded-xl border-black border">
+<div class="flex flex-wrap bg-slate-900 gap-6 m-5 p-7 rounded-xl border-black">
 
     {#each deck_v2 as dick}
-    <div class= "p-3" >
+    <div class= "" >
        
         <Checkbox bind:checked={$stores.packNames[dick]} class="text-slate-300 ">
             {dick}
@@ -40,6 +41,7 @@
     {/each}
     
 </div>
+<!--
 <p class="text-white">
         {userName}
        
@@ -50,5 +52,10 @@
     {us}
 </p>
 {/each}
+-->
+
+<Players>
+</Players>
+
 <style>
 </style>

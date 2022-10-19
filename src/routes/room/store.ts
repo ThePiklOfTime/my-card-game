@@ -6,7 +6,6 @@ type names = string[];
 type packNames = {[name: string] : boolean}
 const usernameStore = syncedStore({
     usernames: [] as names,
-    
     packNames: {} as packNames,
 });
 

@@ -21,17 +21,17 @@ decks.sort( (a, b) => {
     else {return 0}
 })
 
-let x: Record[] = []
+let decknames: Record[] = []
 decks.forEach(deck => {
     if (deck["official"]) {
-        x.push(deck["name"])    
+        decknames.push(deck["name"])    
     }
     
 })
 
 export const load: PageServerLoad= async(event) => {
     return {
-        names : x,
+        names : decknames,
         username: event.cookies.get('username'),
         usernames: username
     };
